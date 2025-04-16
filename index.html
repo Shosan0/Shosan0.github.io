@@ -6,11 +6,11 @@
     <title>Simon GIROD - Artisan Électricien en PACA</title>
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #f1c40f;
-            --dark-color: #2c3e50;
-            --light-color: #ecf0f1;
-            --accent-color: #e74c3c;
+            --primary-color: #FF7700;
+            --secondary-color: #FFA500;
+            --dark-color: #333333;
+            --light-color: #f5f5f5;
+            --accent-color: #FF5722;
         }
         
         * {
@@ -443,8 +443,31 @@
             background-color: var(--primary-color);
         }
         
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            display: block;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
+            header {
+                padding: 0.5rem 0;
+                height: auto;
+            }
+            
+            .header-content {
+                padding: 0.5rem 0;
+            }
+            
             .about-content {
                 flex-direction: column;
             }
@@ -457,15 +480,39 @@
                 font-size: 1.3rem;
             }
             
+            .menu-toggle {
+                display: block;
+                z-index: 999;
+            }
+            
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            nav {
+                width: 100%;
+                position: absolute;
+            }
+            
             .nav-menu {
                 position: fixed;
-                top: 60px;
                 left: -100%;
+                top: 60px;
+                flex-direction: column;
                 background-color: var(--dark-color);
-                width: 80%;
-                height: 100vh;
-                padding: 2rem;
-                transition: left 0.3s;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                z-index: 10;
             }
             
             .nav-menu.active {
@@ -474,17 +521,15 @@
             
             nav ul {
                 flex-direction: column;
+                padding: 1rem 0;
             }
             
             nav ul li {
                 margin: 1rem 0;
             }
             
-            .hamburger {
-                display: block;
-                cursor: pointer;
-                color: white;
-                font-size: 1.5rem;
+            .hero {
+                margin-top: 60px;
             }
         }
     </style>
@@ -493,8 +538,13 @@
     <header>
         <div class="container header-content">
             <div class="logo">Simon <span>GIROD</span></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <nav>
-                <ul>
+                <ul class="nav-menu">
                     <li><a href="#home">Accueil</a></li>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#services">Services</a></li>
@@ -547,43 +597,57 @@
                 <div class="service-card">
                     <div class="service-icon">⚡</div>
                     <div class="service-content">
-                        <h3>Installations électriques</h3>
+                        <h3>Installation électrique</h3>
                         <p>Installation complète ou rénovation de votre système électrique pour particuliers et professionnels.</p>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🔌</div>
                     <div class="service-content">
-                        <h3>Dépannage</h3>
-                        <p>Interventions rapides pour tous vos problèmes électriques : pannes, courts-circuits, etc.</p>
+                        <h3>Courant fort / Courant faible</h3>
+                        <p>Installation et maintenance de circuits haute et basse tension adaptés à vos besoins.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <div class="service-content">
+                        <h3>Neuf, rénovation, dépannage</h3>
+                        <p>Interventions dans le neuf, en rénovation ou pour tous vos dépannages électriques.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <div class="service-content">
+                        <h3>Mise en conformité</h3>
+                        <p>Remise aux normes de vos installations électriques selon les dernières réglementations.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚪</div>
+                    <div class="service-content">
+                        <h3>Motorisation</h3>
+                        <p>Installation et dépannage de motorisation de portail et volet roulant.</p>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🔔</div>
                     <div class="service-content">
-                        <h3>Installation d'alarmes</h3>
-                        <p>Mise en place de systèmes d'alarme pour sécuriser votre domicile ou vos locaux professionnels.</p>
+                        <h3>Alarme et vidéosurveillance</h3>
+                        <p>Sécurisez votre domicile ou vos locaux avec des systèmes d'alarme et de vidéosurveillance fiables.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">♨️</div>
+                    <div class="service-icon">🏠</div>
                     <div class="service-content">
-                        <h3>Installation VMC</h3>
-                        <p>Installation et entretien de systèmes de ventilation mécanique contrôlée pour un air sain.</p>
+                        <h3>Domotique et contrôle d'accès</h3>
+                        <p>Rendez votre maison intelligente avec des solutions de domotique et de contrôle d'accès personnalisées.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💡</div>
+                    <div class="service-icon">📞</div>
                     <div class="service-content">
-                        <h3>Éclairage</h3>
-                        <p>Conception et installation de solutions d'éclairage adaptées à vos espaces intérieurs et extérieurs.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <div class="service-content">
-                        <h3>Travaux divers</h3>
-                        <p>Tout ce qui touche à l'électricité : prises, interrupteurs, tableaux électriques, etc.</p>
+                        <h3>Vidéophone, téléphonie, réseau</h3>
+                        <p>Installation de systèmes de vidéophone, téléphonie et réseau informatique pour particuliers et professionnels.</p>
                     </div>
                 </div>
             </div>
@@ -710,6 +774,23 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {

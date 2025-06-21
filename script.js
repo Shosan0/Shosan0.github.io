@@ -212,7 +212,7 @@ function getAttachmentStyle(anxiety, avoidance) {
         };
     } else if (anxiety >= 4 && avoidance < 4) {
         return {
-            name: "Préoccupé",
+            name: "Anxieux",
             description: "Vous désirez des relations très proches mais vous inquiétez que les autres ne vous aiment pas autant que vous les aimez."
         };
     } else if (anxiety < 4 && avoidance >= 4) {

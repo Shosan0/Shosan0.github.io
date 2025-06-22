@@ -541,17 +541,25 @@ body {
     }
     
     .scale-options {
-        gap: 5px;
+        gap: 3px;
+        padding: 0 5px;
+    }
+    
+    .scale-item {
+        min-width: auto;
+        flex: 1;
     }
     
     .scale-circle {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9em;
+        width: 32px;
+        height: 32px;
+        font-size: 0.85em;
+        margin-bottom: 4px;
     }
     
     .scale-label {
-        font-size: 0.7em;
+        font-size: 0.65em;
+        line-height: 1.1;
     }
     
     .scores-grid {
@@ -562,12 +570,55 @@ body {
 
 @media (max-width: 480px) {
     .scale-options {
-        justify-content: space-around;
+        gap: 2px;
+        padding: 0;
+    }
+    
+    .scale-item {
+        min-width: 40px;
     }
     
     .scale-circle {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
+        font-size: 0.75em;
+        margin-bottom: 3px;
+    }
+    
+    .scale-label {
+        font-size: 0.6em;
+        max-width: 35px;
+        word-wrap: break-word;
+    }
+    
+    .scale-extremes {
         font-size: 0.8em;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .scale-options {
+        gap: 1px;
+    }
+    
+    .scale-circle {
+        width: 26px;
+        height: 26px;
+        font-size: 0.7em;
+        border-width: 2px;
+    }
+    
+    .scale-label {
+        font-size: 0.55em;
+        max-width: 30px;
+    }
+    
+    /* Masquer les labels intermédiaires sur très petit écran */
+    .scale-item:nth-child(2) .scale-label,
+    .scale-item:nth-child(3) .scale-label,
+    .scale-item:nth-child(5) .scale-label,
+    .scale-item:nth-child(6) .scale-label {
+        display: none;
     }
 }

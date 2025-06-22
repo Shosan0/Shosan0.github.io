@@ -22,7 +22,7 @@
         <section id="home" class="section active">
             <div class="main-header">
                 <h1>Mes Outils & Projets</h1>
-                <p>Bienvenue sur mon hub personnel ! Vous trouverez ici tous mes petits projets, outils utiles et expérimentations. N'hésitez pas à explorer !</p>
+                <p>Voilà le site un peu fourre-tout que j'utiliserai dorénavent pour exposer mes expériences.</p>
             </div>
 
             <!-- Filtres par catégorie -->
@@ -40,7 +40,7 @@
                 <div class="project-card available" data-category="psychology">
                     <div class="project-icon">💕</div>
                     <h3>Test d'Attachement ECR-R</h3>
-                    <p>Découvrez votre style d'attachement dans les relations amoureuses grâce à ce test scientifiquement validé.</p>
+                    <p>Découvrez votre style d'attachement dans les relations amoureuses grâce à ce test.</p>
                     <div class="project-tags">
                         <span class="tag">Psychologie</span>
                         <span class="tag">Scientifique</span>
@@ -49,7 +49,7 @@
                     <div class="project-meta">
                         <span>⏱️ 5-10 min</span>
                         <span>📊 36 questions</span>
-                        <span>🎯 Gratuit</span>
+                        <span>🎯 Précision approximative</span>
                     </div>
                     <button class="btn btn-primary" onclick="startAttachmentTest()">
                         Faire le test
@@ -97,7 +97,7 @@
                 </div>
 
                 <!-- Test de réflexes -->
-                <div class="project-card coming-soon" data-category="games">
+                <div class="project-card available" data-category="games">
                     <div class="project-icon">⚡</div>
                     <h3>Test de Réflexes</h3>
                     <p>Mesurez votre temps de réaction ! Cliquez dès que l'écran change de couleur et battez vos records.</p>
@@ -109,10 +109,10 @@
                     <div class="project-meta">
                         <span>⏱️ Milliseconde</span>
                         <span>📊 Historique</span>
-                        <span class="tag">Bientôt</span>
+                        <span>🎯 Précision chirugicale</span>
                     </div>
-                    <button class="btn btn-secondary" disabled>
-                        Bientôt disponible
+                    <button class="btn btn-primary" onclick="startReactionTest()">
+                        Tester mes réflexes
                     </button>
                 </div>
 
@@ -265,9 +265,36 @@
             </div>
         </section>
 
+        <!-- Test de réaction -->
+        <section id="reaction-test" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du test -->
+            <div id="reaction-interface">
+                <div class="main-header">
+                    <h1>Test de Réflexes</h1>
+                    <p>Testez votre vitesse de réaction !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="reaction-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+
+                <!-- Historique -->
+                <div id="reaction-history" style="display: none;">
+                    <!-- Historique généré par JavaScript -->
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2025 Mon Hub Personnel. Fait avec amour</p>
+            <p>&copy; 2025 Mon Hub Personnel.</p>
             <p style="margin-top: 10px; font-size: 0.9em;">Hébergé gratuitement sur GitHub Pages</p>
         </footer>
     </div>

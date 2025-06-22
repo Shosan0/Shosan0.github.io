@@ -313,8 +313,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 5px;
 }
 
 .scale-item {
@@ -324,7 +324,7 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     flex: 1;
-    min-width: 60px;
+    max-width: calc(100% / 7);
 }
 
 .scale-item:hover {
@@ -541,13 +541,12 @@ body {
     }
     
     .scale-options {
-        gap: 3px;
-        padding: 0 5px;
+        padding: 0 2px;
     }
     
     .scale-item {
+        max-width: calc(100% / 7);
         min-width: auto;
-        flex: 1;
     }
     
     .scale-circle {
@@ -560,6 +559,9 @@ body {
     .scale-label {
         font-size: 0.65em;
         line-height: 1.1;
+        text-align: center;
+        word-wrap: break-word;
+        max-width: 100%;
     }
     
     .scores-grid {
@@ -570,12 +572,7 @@ body {
 
 @media (max-width: 480px) {
     .scale-options {
-        gap: 2px;
-        padding: 0;
-    }
-    
-    .scale-item {
-        min-width: 40px;
+        padding: 0 1px;
     }
     
     .scale-circle {
@@ -587,8 +584,7 @@ body {
     
     .scale-label {
         font-size: 0.6em;
-        max-width: 35px;
-        word-wrap: break-word;
+        line-height: 1;
     }
     
     .scale-extremes {
@@ -599,7 +595,7 @@ body {
 
 @media (max-width: 360px) {
     .scale-options {
-        gap: 1px;
+        padding: 0;
     }
     
     .scale-circle {
@@ -611,7 +607,6 @@ body {
     
     .scale-label {
         font-size: 0.55em;
-        max-width: 30px;
     }
     
     /* Masquer les labels intermédiaires sur très petit écran */

@@ -207,23 +207,23 @@ function calculateResults() {
 function getAttachmentStyle(anxiety, avoidance) {
     if (anxiety < 4 && avoidance < 4) {
         return {
-            name: "Sécure",
-            description: "Vous vous sentez généralement à l'aise dans l'intimité et l'autonomie. Vous maintenez facilement des relations proches et stables."
+            name: "Sécure 56-58% de la population",
+            description: "Ces personnes ont grandi avec des parents attentifs et fiables. Elles sont confortables avec l'intimité émotionnelle sans perdre leur indépendance. Elles communiquent directement leurs besoins, gèrent bien les conflits et font confiance à leurs partenaires tout en gardant une bonne estime d'elles-mêmes. Dans une dispute, elles cherchent à résoudre le problème plutôt qu'à blâmer. Elles sont capables d'être seules sans souffrir et en couple sans se perdre."
         };
     } else if (anxiety >= 4 && avoidance < 4) {
         return {
-            name: "Anxieux",
-            description: "Vous désirez des relations très proches mais vous inquiétez que les autres ne vous aiment pas autant que vous les aimez."
+            name: "Anxieux/Préoccupé 18-20% de la population",
+            description: "Ces personnes ont souvent eu des parents incohérents - parfois présents, parfois absents. Elles vivent avec une peur constante d'être abandonnées et ont besoin de beaucoup de réassurance de leur partenaire. Elles analysent chaque message, chaque ton de voix pour déceler des signes de rejet. En relation, elles peuvent devenir collantes, vérifier souvent où est leur partenaire, et interpréter le silence comme un signe que 'quelque chose ne va pas'. Elles ont tendance à idealiser leur partenaire tout en se dévalorisent."
         };
     } else if (anxiety < 4 && avoidance >= 4) {
         return {
-            name: "Évitant",
-            description: "Vous valorisez l'indépendance et l'autonomie. Vous pouvez vous sentir mal à l'aise avec une trop grande intimité émotionnelle."
+            name: "Évitant/Détaché 22-25% de la population",
+            description: "Ces personnes ont appris très tôt que compter sur les autres mène à la déception, souvent à cause de parents émotionnellement indisponibles. Elles valorisent énormément leur indépendance et se sentent étouffées par trop d'intimité émotionnelle. Elles ont du mal à exprimer leurs sentiments, évitent les conversations 'trop personnelles' et peuvent disparaître quand une relation devient sérieuse. Elles préfèrent les relations superficielles ou les aventures sans lendemain car c'est moins 'risqué' émotionnellement."
         };
     } else {
         return {
-            name: "Désorganisé",
-            description: "Vous ressentez un mélange d'anxiété et d'évitement dans les relations, pouvant créer des difficultés relationnelles."
+            name: "Désorganisé/Craintif-Évitant 5-10% de la population",
+            description: "Ces personnes ont souvent vécu des traumatismes d'enfance où leurs parents étaient à la fois source de sécurité ET de danger. Elles veulent désespérément l'amour mais paniquent dès qu'elles l'obtiennent. Leur comportement est imprévisible : elles peuvent être très proches un jour et complètement distantes le lendemain. Elles ont du mal à faire confiance mais souffrent terriblement de la solitude. C'est le plus complexe des styles car il combine les peurs des anxieux ET des évitants, créant un cycle constant d'approche-fuite qui épuise leurs partenaires."
         };
     }
 }

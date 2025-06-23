@@ -1,3 +1,45 @@
+// ===== NAVIGATION GÉNÉRALE =====
+function showSection(sectionName) {
+    // Cacher toutes les sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Afficher la section demandée
+    document.getElementById(sectionName).classList.add('active');
+    
+    // Mettre à jour la navigation
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Réactiver le bon lien de navigation
+    const navLink = document.querySelector(`.nav-links a[onclick="showSection('${sectionName}')"]`);
+    if (navLink) {
+        navLink.classList.add('active');
+    }
+}
+
+// Filtrage des projets
+function filterProjects(category) {
+    const cards = document.querySelectorAll('.project-card');
+    const filters = document.querySelectorAll('.category-filter');
+    
+    // Mettre à jour les filtres actifs
+    filters.forEach(filter => filter.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Filtrer les cartes
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// ===== TEST D'ATTACHEMENT =====
 // Questions ECR-R avec leurs propriétés
 const questions = [
     {id: 1, text: "I'm afraid that I will lose my partner's love.", dimension: "anxiety", reverse: false},
@@ -40,47 +82,6 @@ const questions = [
 
 let currentQuestion = 0;
 let responses = {};
-
-// Navigation générale
-function showSection(sectionName) {
-    // Cacher toutes les sections
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Afficher la section demandée
-    document.getElementById(sectionName).classList.add('active');
-    
-    // Mettre à jour la navigation
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Réactiver le bon lien de navigation
-    const navLink = document.querySelector(`.nav-links a[onclick="showSection('${sectionName}')"]`);
-    if (navLink) {
-        navLink.classList.add('active');
-    }
-}
-
-// Filtrage des projets
-function filterProjects(category) {
-    const cards = document.querySelectorAll('.project-card');
-    const filters = document.querySelectorAll('.category-filter');
-    
-    // Mettre à jour les filtres actifs
-    filters.forEach(filter => filter.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    // Filtrer les cartes
-    cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
 
 // Fonctions du test d'attachement
 function startAttachmentTest() {
@@ -207,23 +208,23 @@ function calculateResults() {
 function getAttachmentStyle(anxiety, avoidance) {
     if (anxiety < 4 && avoidance < 4) {
         return {
-            name: "Sécure 56-58% de la population",
-            description: "Ces personnes ont grandi avec des parents attentifs et fiables. Elles sont confortables avec l'intimité émotionnelle sans perdre leur indépendance. Elles communiquent directement leurs besoins, gèrent bien les conflits et font confiance à leurs partenaires tout en gardant une bonne estime d'elles-mêmes. Dans une dispute, elles cherchent à résoudre le problème plutôt qu'à blâmer. Elles sont capables d'être seules sans souffrir et en couple sans se perdre."
+            name: "Sécure",
+            description: "Vous vous sentez généralement à l'aise dans l'intimité et l'autonomie. Vous maintenez facilement des relations proches et stables."
         };
     } else if (anxiety >= 4 && avoidance < 4) {
         return {
-            name: "Anxieux/Préoccupé 18-20% de la population",
-            description: "Ces personnes ont souvent eu des parents incohérents - parfois présents, parfois absents. Elles vivent avec une peur constante d'être abandonnées et ont besoin de beaucoup de réassurance de leur partenaire. Elles analysent chaque message, chaque ton de voix pour déceler des signes de rejet. En relation, elles peuvent devenir collantes, vérifier souvent où est leur partenaire, et interpréter le silence comme un signe que 'quelque chose ne va pas'. Elles ont tendance à idealiser leur partenaire tout en se dévalorisent."
+            name: "Préoccupé",
+            description: "Vous désirez des relations très proches mais vous inquiétez que les autres ne vous aiment pas autant que vous les aimez."
         };
     } else if (anxiety < 4 && avoidance >= 4) {
         return {
-            name: "Évitant/Détaché 22-25% de la population",
-            description: "Ces personnes ont appris très tôt que compter sur les autres mène à la déception, souvent à cause de parents émotionnellement indisponibles. Elles valorisent énormément leur indépendance et se sentent étouffées par trop d'intimité émotionnelle. Elles ont du mal à exprimer leurs sentiments, évitent les conversations 'trop personnelles' et peuvent disparaître quand une relation devient sérieuse. Elles préfèrent les relations superficielles ou les aventures sans lendemain car c'est moins 'risqué' émotionnellement."
+            name: "Évitant",
+            description: "Vous valorisez l'indépendance et l'autonomie. Vous pouvez vous sentir mal à l'aise avec une trop grande intimité émotionnelle."
         };
     } else {
         return {
-            name: "Désorganisé/Craintif-Évitant 5-10% de la population",
-            description: "Ces personnes ont souvent vécu des traumatismes d'enfance où leurs parents étaient à la fois source de sécurité ET de danger. Elles veulent désespérément l'amour mais paniquent dès qu'elles l'obtiennent. Leur comportement est imprévisible : elles peuvent être très proches un jour et complètement distantes le lendemain. Elles ont du mal à faire confiance mais souffrent terriblement de la solitude. C'est le plus complexe des styles car il combine les peurs des anxieux ET des évitants, créant un cycle constant d'approche-fuite qui épuise leurs partenaires."
+            name: "Désorganisé",
+            description: "Vous ressentez un mélange d'anxiété et d'évitement dans les relations, pouvant créer des difficultés relationnelles."
         };
     }
 }
@@ -388,22 +389,12 @@ function restartAttachmentTest() {
     });
 }
 
-// Gérer le redimensionnement de la fenêtre pour le graphique
-window.addEventListener('resize', function() {
-    if (document.getElementById('resultsContainer').style.display !== 'none') {
-        setTimeout(() => {
-            const anxiety = parseFloat(document.getElementById('anxietyScore').textContent);
-            const avoidance = parseFloat(document.getElementById('avoidanceScore').textContent);
-            drawChart(anxiety, avoidance);
-        }, 100);
-    }
-});
-
+// ===== TEST DE RÉACTION =====
 // Variables pour le test de réaction
 let reactionStartTime = 0;
 let reactionTimeout = null;
 let reactionHistory = [];
-let isWaitingForClick = false;
+let reactionState = 'initial'; // 'initial', 'waiting', 'ready', 'result'
 
 function startReactionTest() {
     showSection('reaction-test');
@@ -416,12 +407,9 @@ function initReactionTest() {
     gameArea.innerHTML = `
         <div class="reaction-game">
             <div id="reaction-screen" class="reaction-screen waiting" onclick="handleReactionClick()">
-                <div id="reaction-message">Cliquez quand l'écran devient vert !</div>
+                <div id="reaction-message">Cliquez ici pour commencer !</div>
             </div>
-            <button class="btn btn-primary" onclick="startReactionRound()">
-                Commencer le test
-            </button>
-            <button class="btn btn-secondary" onclick="showReactionHistory()" style="margin-left: 10px;">
+            <button class="btn btn-secondary" onclick="showReactionHistory()" style="margin-top: 10px;">
                 Voir l'historique
             </button>
         </div>
@@ -446,7 +434,48 @@ function initReactionTest() {
         </div>
     `;
     
+    reactionState = 'initial';
     updateReactionStats();
+}
+
+function handleReactionClick() {
+    const screen = document.getElementById('reaction-screen');
+    const message = document.getElementById('reaction-message');
+    
+    if (reactionState === 'initial' || reactionState === 'result') {
+        // Commencer un nouveau test
+        startReactionRound();
+    } else if (reactionState === 'waiting') {
+        // Clic trop tôt
+        clearTimeout(reactionTimeout);
+        reactionState = 'result';
+        screen.className = 'reaction-screen clicked';
+        message.innerHTML = `
+            <div style="font-size: 1.2em; margin-bottom: 10px;">Trop tôt !</div>
+            <div style="font-size: 0.9em; margin-bottom: 15px;">Attendez que l'écran devienne vert</div>
+            <div style="font-size: 0.8em; opacity: 0.7;">Cliquez pour recommencer</div>
+        `;
+    } else if (reactionState === 'ready') {
+        // Calcul du temps de réaction
+        const reactionTime = Date.now() - reactionStartTime;
+        reactionState = 'result';
+        
+        // Sauvegarde
+        reactionHistory.push({
+            time: reactionTime,
+            date: new Date().toLocaleString()
+        });
+        
+        // Affichage du résultat
+        screen.className = 'reaction-screen clicked';
+        message.innerHTML = `
+            <div style="font-size: 2em; margin-bottom: 10px; color: var(--psych-coral);">${reactionTime}ms</div>
+            <div style="font-size: 1em; margin-bottom: 15px;">${getReactionRating(reactionTime)}</div>
+            <div style="font-size: 0.8em; opacity: 0.7;">Cliquez pour recommencer</div>
+        `;
+        
+        updateReactionStats();
+    }
 }
 
 function startReactionRound() {
@@ -455,72 +484,38 @@ function startReactionRound() {
     
     // Reset
     clearTimeout(reactionTimeout);
-    isWaitingForClick = false;
+    reactionState = 'waiting';
     
     // Phase d'attente
     screen.className = 'reaction-screen waiting';
-    message.textContent = 'Attendez...';
+    message.innerHTML = `
+        <div style="font-size: 1.2em; margin-bottom: 10px;">Attendez...</div>
+        <div style="font-size: 0.9em; opacity: 0.8;">L'écran va devenir vert</div>
+    `;
     
     // Délai aléatoire entre 2 et 5 secondes
     const delay = Math.random() * 3000 + 2000;
     
     reactionTimeout = setTimeout(() => {
-        screen.className = 'reaction-screen ready';
-        message.textContent = 'CLIQUEZ MAINTENANT !';
-        reactionStartTime = Date.now();
-        isWaitingForClick = true;
+        if (reactionState === 'waiting') { // Vérifier qu'on n'a pas cliqué trop tôt
+            screen.className = 'reaction-screen ready';
+            message.innerHTML = `
+                <div style="font-size: 1.5em; margin-bottom: 10px;">CLIQUEZ MAINTENANT !</div>
+                <div style="font-size: 0.9em; opacity: 0.8;">⚡ Le plus vite possible ⚡</div>
+            `;
+            reactionStartTime = Date.now();
+            reactionState = 'ready';
+        }
     }, delay);
 }
 
-function handleReactionClick() {
-    const screen = document.getElementById('reaction-screen');
-    const message = document.getElementById('reaction-message');
-    
-    if (!isWaitingForClick) {
-        // Clic trop tôt
-        clearTimeout(reactionTimeout);
-        screen.className = 'reaction-screen clicked';
-        message.textContent = 'Trop tôt ! Attendez le vert.';
-        setTimeout(() => {
-            screen.className = 'reaction-screen waiting';
-            message.textContent = 'Cliquez quand l\'écran devient vert !';
-        }, 2000);
-        return;
-    }
-    
-    // Calcul du temps de réaction
-    const reactionTime = Date.now() - reactionStartTime;
-    
-    // Sauvegarde
-    reactionHistory.push({
-        time: reactionTime,
-        date: new Date().toLocaleString()
-    });
-    
-    // Affichage du résultat
-    screen.className = 'reaction-screen clicked';
-    message.innerHTML = `
-        <div style="font-size: 1.2em; margin-bottom: 10px;">${reactionTime}ms</div>
-        <div style="font-size: 0.8em;">${getReactionRating(reactionTime)}</div>
-    `;
-    
-    // Reset pour le prochain test
-    isWaitingForClick = false;
-    updateReactionStats();
-    
-    setTimeout(() => {
-        screen.className = 'reaction-screen waiting';
-        message.textContent = 'Cliquez quand l\'écran devient vert !';
-    }, 3000);
-}
-
 function getReactionRating(time) {
-    if (time < 200) return '🚀 Incroyable !';
-    if (time < 250) return '⚡ Excellent !';
-    if (time < 300) return '👍 Très bon !';
-    if (time < 400) return '👌 Bon !';
-    if (time < 500) return '😐 Moyen';
-    return '🐌 À améliorer...';
+    if (time < 200) return '🚀 Incroyable ! La bête féroce !';
+    if (time < 250) return "⚡ Excellent ! T'es presque aussi rapide que moi !";
+    if (time < 300) return '👍 Très bon ! Belle perf !';
+    if (time < 400) return '👌 Bon ! Dans la moyenne mais az';
+    if (time < 500) return "😐 Moyen. Il faut regarder l'écran hein";
+    return "🐌 Lent... Tu t'es endormi complet là ! 😴";
 }
 
 function updateReactionStats() {
@@ -570,3 +565,15 @@ function showReactionHistory() {
 function hideReactionHistory() {
     document.getElementById('reaction-history').style.display = 'none';
 }
+
+// ===== GESTION REDIMENSIONNEMENT =====
+// Gérer le redimensionnement de la fenêtre pour le graphique d'attachement
+window.addEventListener('resize', function() {
+    if (document.getElementById('resultsContainer').style.display !== 'none') {
+        setTimeout(() => {
+            const anxiety = parseFloat(document.getElementById('anxietyScore').textContent);
+            const avoidance = parseFloat(document.getElementById('avoidanceScore').textContent);
+            drawChart(anxiety, avoidance);
+        }, 100);
+    }
+});

@@ -503,7 +503,119 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* Responsive */
+/* Test de réaction */
+.reaction-game {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.reaction-screen {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    margin-bottom: 20px;
+    border: 3px solid var(--psych-cream);
+    user-select: none;
+}
+
+.reaction-screen.waiting {
+    background: var(--psych-coral) !important;
+    color: white !important;
+}
+
+.reaction-screen.ready {
+    background: var(--psych-sage) !important;
+    color: white !important;
+}
+
+.reaction-screen.clicked {
+    background: var(--psych-ivory) !important;
+    color: var(--text-dark) !important;
+}
+
+.reaction-screen:hover {
+    opacity: 0.9;
+}
+
+#reaction-message {
+    padding: 20px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.reaction-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.reaction-stat-card {
+    background: var(--psych-ivory);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.reaction-stat-value {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--psych-coral);
+    margin-bottom: 5px;
+}
+
+.reaction-stat-label {
+    color: var(--text-light);
+    font-size: 0.9em;
+}
+
+.reaction-history-table {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 768px) {
+    .reaction-screen {
+        height: 250px;
+        font-size: 1.2em;
+    }
+    
+    .reaction-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    #reaction-message {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reaction-screen {
+        height: 200px;
+        font-size: 1em;
+    }
+    
+    .reaction-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    #reaction-message {
+        padding: 10px;
+    }
+}
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -980,3 +1092,5 @@ body {
     .scale-item:nth-child(6) .scale-label {
         display: none;
     }
+=======
+}

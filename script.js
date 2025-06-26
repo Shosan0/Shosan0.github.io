@@ -959,12 +959,12 @@ function displayTypingResults(wpm, rawWpm, accuracy, totalWords) {
 }
 
 function getTypingRating(wpm) {
-    if (wpm >= 80) return '🚀 Exceptionnellement rapide ! Vous êtes un vrai pro du clavier !';
+    if (wpm >= 80) return '🚀 Exceptionnellement rapide ! C\'est ta 12e Redbull de la journée ?!';
     if (wpm >= 60) return '⚡ Très rapide ! Excellente vitesse de frappe !';
     if (wpm >= 40) return '👍 Bonne vitesse ! Au-dessus de la moyenne !';
-    if (wpm >= 25) return '👌 Vitesse correcte ! Continuez à vous entraîner !';
-    if (wpm >= 15) return '🏃 Vitesse de base. Avec de la pratique, vous progresserez !';
-    return '🐢 Début de l\'apprentissage. Prenez votre temps et focalisez-vous sur la précision !';
+    if (wpm >= 25) return '👌 Vitesse correcte, tu peux faire mieux!';
+    if (wpm >= 15) return '🏃 Vitesse de moldu.';
+    return '🐢 Début de l\'apprentissage. Prends ton temps et ressaye !';
 }
 
 function resetTypingStats() {

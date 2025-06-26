@@ -22,7 +22,7 @@
         <section id="home" class="section active">
             <div class="main-header">
                 <h1>Mes Outils & Projets</h1>
-                <p>Bienvenue sur mon hub personnel ! Vous trouverez ici tous mes petits projets, outils utiles et expérimentations. N'hésitez pas à explorer !</p>
+                <p>Voilà le site un peu fourre-tout que j'utiliserai dorénavent pour exposer mes expériences.</p>
             </div>
 
             <!-- Filtres par catégorie -->
@@ -40,7 +40,7 @@
                 <div class="project-card available" data-category="psychology">
                     <div class="project-icon">💕</div>
                     <h3>Test d'Attachement ECR-R</h3>
-                    <p>Découvrez votre style d'attachement dans les relations amoureuses grâce à ce test scientifiquement validé.</p>
+                    <p>Découvre ton style d'attachement dans les relations amoureuses grâce à ce test.</p>
                     <div class="project-tags">
                         <span class="tag">Psychologie</span>
                         <span class="tag">Scientifique</span>
@@ -49,7 +49,7 @@
                     <div class="project-meta">
                         <span>⏱️ 5-10 min</span>
                         <span>📊 36 questions</span>
-                        <span>🎯 Gratuit</span>
+                        <span>🎯 Approximatif</span>
                     </div>
                     <button class="btn btn-primary" onclick="startAttachmentTest()">
                         Faire le test
@@ -57,22 +57,63 @@
                 </div>
 
                 <!-- Test de dactylographie -->
-                <div class="project-card coming-soon" data-category="productivity">
+                <div class="project-card available" data-category="productivity">
                     <div class="project-icon">⌨️</div>
                     <h3>Test de Dactylographie</h3>
-                    <p>Testez votre vitesse de frappe et votre précision avec différents textes et langues. Suivez vos progrès !</p>
+                    <p>Teste ta vitesse de frappe et améliore tes performances au clavier pour taper comme une RH boosté.</p>
+
                     <div class="project-tags">
-                        <span class="tag">Productivité</span>
-                        <span class="tag">Compétences</span>
+                        <span class="tag">WPM</span>
+                        <span class="tag">Précision</span>
                         <span class="tag">Entraînement</span>
                     </div>
                     <div class="project-meta">
-                        <span>⏱️ 1-5 min</span>
-                        <span>📈 Statistiques</span>
-                        <span class="tag">Bientôt</span>
+                        <span>⏱️ 60 s</span>
+                        <span>📊 Statistiques</span>
+                        <span>🎯 Exceptionnel</span>
                     </div>
-                    <button class="btn btn-secondary" disabled>
-                        Bientôt disponible
+                    <button class="btn btn-primary" onclick="startTypingTest()">
+                        Tester ma vitesse
+                    </button>
+                </div>
+
+                <!-- Test de réflexes -->
+                <div class="project-card available" data-category="games">
+                    <div class="project-icon">⚡</div>
+                    <h3>Test de Réflexes</h3>
+                    <p>Mesure ton temps de réaction ! Clique dès que l'écran change de couleur.</p>
+                    <div class="project-tags">
+                        <span class="tag">Réflexes</span>
+                        <span class="tag">Temps</span>
+                        <span class="tag">Challenge</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>⏱️ Milliseconde</span>
+                        <span>📊 Historique</span>
+                        <span>🎯 Chirugical</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startReactionTest()">
+                        Tester mes réflexes
+                    </button>
+                </div>
+
+                <!-- Blackjack - NOUVEAU -->
+                <div class="project-card available" data-category="games">
+                    <div class="project-icon">🃏</div>
+                    <h3>Blackjack</h3>
+                    <p>Affrontez le croupier dans ce classique des casinos ! Arriverez-vous à faire 21 sans dépasser ?</p>
+                    <div class="project-tags">
+                        <span class="tag">Cartes</span>
+                        <span class="tag">Stratégie</span>
+                        <span class="tag">Casino</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>🎰 Vs Dealer</span>
+                        <span>🃏 Deck complet</span>
+                        <span>🎯 Addictif</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startBlackjackGame()">
+                        Jouer au Blackjack
                     </button>
                 </div>
 
@@ -80,7 +121,7 @@
                 <div class="project-card coming-soon" data-category="tools">
                     <div class="project-icon">📱</div>
                     <h3>Générateur QR Code</h3>
-                    <p>Créez rapidement des QR codes pour vos liens, textes, WiFi et plus encore. Simple et efficace !</p>
+                    <p>Pour créer rapidement des QR codes pour un lien, texte, WiFi et plus encore.</p>
                     <div class="project-tags">
                         <span class="tag">Outils</span>
                         <span class="tag">QR Code</span>
@@ -96,31 +137,11 @@
                     </button>
                 </div>
 
-                <!-- Test de réflexes -->
-                <div class="project-card coming-soon" data-category="games">
-                    <div class="project-icon">⚡</div>
-                    <h3>Test de Réflexes</h3>
-                    <p>Mesurez votre temps de réaction ! Cliquez dès que l'écran change de couleur et battez vos records.</p>
-                    <div class="project-tags">
-                        <span class="tag">Réflexes</span>
-                        <span class="tag">Temps</span>
-                        <span class="tag">Challenge</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>⏱️ Milliseconde</span>
-                        <span>📊 Historique</span>
-                        <span class="tag">Bientôt</span>
-                    </div>
-                    <button class="btn btn-secondary" disabled>
-                        Bientôt disponible
-                    </button>
-                </div>
-
                 <!-- Générateur de palettes -->
                 <div class="project-card coming-soon" data-category="web">
                     <div class="project-icon">🎨</div>
                     <h3>Générateur de Palettes</h3>
-                    <p>Créez de magnifiques palettes de couleurs pour vos projets web et design. Export CSS inclus !</p>
+                    <p>Crée de magnifiques palettes de couleurs pour des projets web et design. Export CSS inclus !</p>
                     <div class="project-tags">
                         <span class="tag">Design</span>
                         <span class="tag">Couleurs</span>
@@ -147,16 +168,16 @@
             
             <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 <h2 style="color: var(--psych-sage); margin-bottom: 20px;">Mon Hub Personnel</h2>
-                <p style="margin-bottom: 20px;">Bienvenue ! Ce site regroupe tous mes projets personnels, petits outils utiles et expérimentations. Certains sont pratiques, d'autres juste pour le fun.</p>
+                <p style="margin-bottom: 20px;">Bienvenue ! Ce site regroupe tous mes projets personnels, petits outils utiles et expérimentations. Ça va évoluer et j'aimerais bien développer l'idée.</p>
                 
                 <h3 style="color: var(--psych-coral); margin-top: 30px; margin-bottom: 15px;">Pourquoi ce site ?</h3>
-                <p style="margin-bottom: 20px;">J'aime créer des petits projets et outils dans mes temps libres. Plutôt que de les laisser traîner sur mon ordinateur, j'ai décidé de les rassembler ici pour les partager avec le monde !</p>
+                <p style="margin-bottom: 20px;">J'aime créer des petits projets et outils dans mes temps libres. Plutôt que de les garder pour moi, je les rassembles ici pour les partager avec le monde !</p>
                 
                 <h3 style="color: var(--psych-coral); margin-top: 30px; margin-bottom: 15px;">Technique</h3>
                 <p style="margin-bottom: 20px;">Tous les outils sont développés en pur frontend (HTML, CSS, JavaScript) et hébergés gratuitement sur GitHub Pages. Aucune donnée n'est collectée, tout reste dans votre navigateur !</p>
                 
                 <h3 style="color: var(--psych-coral); margin-top: 30px; margin-bottom: 15px;">Évolutions</h3>
-                <p>Ce site évolue régulièrement ! N'hésitez pas à revenir de temps en temps pour découvrir de nouveaux outils et projets.</p>
+                <p>Ce site évolue régulièrement ! J'essaye de rajouter des fonctionalités autant que je peux mais c'est surtout en fonction de mes besoins et ce dont j'ai envie de faire. N'hésitez pas à proposer des choses.</p>
             </div>
         </section>
 
@@ -265,9 +286,90 @@
             </div>
         </section>
 
+        <!-- Test de réaction -->
+        <section id="reaction-test" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du test -->
+            <div id="reaction-interface">
+                <div class="main-header">
+                    <h1>Test de Réflexes</h1>
+                    <p>Testez votre vitesse de réaction !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="reaction-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+
+                <!-- Historique -->
+                <div id="reaction-history" style="display: none;">
+                    <!-- Historique généré par JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Test de dactylographie -->
+        <section id="typing-test" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du test -->
+            <div id="typing-interface">
+                <div class="main-header">
+                    <h1>Test de Dactylographie</h1>
+                    <p>Tapez les mots affichés le plus rapidement possible !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="typing-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+
+                <!-- Historique -->
+                <div id="typing-history" style="display: none;">
+                    <!-- Historique généré par JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Blackjack Game - NOUVEAU -->
+        <section id="blackjack-game" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du jeu -->
+            <div id="blackjack-interface">
+                <div class="main-header">
+                    <h1>🃏 Blackjack</h1>
+                    <p>Battez le croupier en vous approchant au maximum de 21 !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="blackjack-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+
+                <!-- Règles -->
+                <div id="blackjack-rules" style="display: none;">
+                    <!-- Règles générées par JavaScript -->
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2025 Mon Hub Personnel. Fait avec amour</p>
+            <p>&copy; 2025 Mon Hub Personnel.</p>
             <p style="margin-top: 10px; font-size: 0.9em;">Hébergé gratuitement sur GitHub Pages</p>
         </footer>
     </div>

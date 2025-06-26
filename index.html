@@ -77,26 +77,6 @@
                     </button>
                 </div>
 
-                <!-- Générateur de QR Code -->
-                <div class="project-card coming-soon" data-category="tools">
-                    <div class="project-icon">📱</div>
-                    <h3>Générateur QR Code</h3>
-                    <p>Pour créer rapidement des QR codes pour un lien, texte, WiFi et plus encore.</p>
-                    <div class="project-tags">
-                        <span class="tag">Outils</span>
-                        <span class="tag">QR Code</span>
-                        <span class="tag">Utilitaire</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>⚡ Instantané</span>
-                        <span>💾 Téléchargeable</span>
-                        <span class="tag">Bientôt</span>
-                    </div>
-                    <button class="btn btn-secondary" disabled>
-                        Bientôt disponible
-                    </button>
-                </div>
-
                 <!-- Test de réflexes -->
                 <div class="project-card available" data-category="games">
                     <div class="project-icon">⚡</div>
@@ -114,6 +94,46 @@
                     </div>
                     <button class="btn btn-primary" onclick="startReactionTest()">
                         Tester mes réflexes
+                    </button>
+                </div>
+
+                <!-- Blackjack - NOUVEAU -->
+                <div class="project-card available" data-category="games">
+                    <div class="project-icon">🃏</div>
+                    <h3>Blackjack</h3>
+                    <p>Affrontez le croupier dans ce classique des casinos ! Arriverez-vous à faire 21 sans dépasser ?</p>
+                    <div class="project-tags">
+                        <span class="tag">Cartes</span>
+                        <span class="tag">Stratégie</span>
+                        <span class="tag">Casino</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>🎰 Vs Dealer</span>
+                        <span>🃏 Deck complet</span>
+                        <span>🎯 Addictif</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startBlackjackGame()">
+                        Jouer au Blackjack
+                    </button>
+                </div>
+
+                <!-- Générateur de QR Code -->
+                <div class="project-card coming-soon" data-category="tools">
+                    <div class="project-icon">📱</div>
+                    <h3>Générateur QR Code</h3>
+                    <p>Pour créer rapidement des QR codes pour un lien, texte, WiFi et plus encore.</p>
+                    <div class="project-tags">
+                        <span class="tag">Outils</span>
+                        <span class="tag">QR Code</span>
+                        <span class="tag">Utilitaire</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>⚡ Instantané</span>
+                        <span>💾 Téléchargeable</span>
+                        <span class="tag">Bientôt</span>
+                    </div>
+                    <button class="btn btn-secondary" disabled>
+                        Bientôt disponible
                     </button>
                 </div>
 
@@ -292,6 +312,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Test de dactylographie -->
         <section id="typing-test" class="section">
             <div style="margin-bottom: 30px;">
@@ -318,6 +339,34 @@
                 </div>
             </div>
         </section>
+
+        <!-- Blackjack Game - NOUVEAU -->
+        <section id="blackjack-game" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du jeu -->
+            <div id="blackjack-interface">
+                <div class="main-header">
+                    <h1>🃏 Blackjack</h1>
+                    <p>Battez le croupier en vous approchant au maximum de 21 !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="blackjack-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+
+                <!-- Règles -->
+                <div id="blackjack-rules" style="display: none;">
+                    <!-- Règles générées par JavaScript -->
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 Mon Hub Personnel.</p>

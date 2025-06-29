@@ -10,9 +10,8 @@
     <div class="container">
         <!-- Navigation -->
         <nav class="navbar">
-            <div class="logo">Mon Hub</div>
+            <div class="logo" onclick="showSection('home')">Messy-Things</div>
             <div class="nav-links">
-                <a href="#" onclick="showSection('home')" class="active">Accueil</a>
                 <a href="#" onclick="showSection('about')">À propos</a>
                 <a href="#" onclick="showSection('contact')">Contact</a>
             </div>
@@ -22,7 +21,7 @@
         <section id="home" class="section active">
             <div class="main-header">
                 <h1>Mes Outils & Projets</h1>
-                <p>Voilà le site un peu fourre-tout que j'utiliserai maintenant pour exposer mes expériences.</p>
+                <p>Bienvenue au labo.</p>
             </div>
 
             <!-- Filtres par catégorie -->
@@ -48,7 +47,7 @@
                     </div>
                     <div class="project-meta">
                         <span>⏱️ 5-10 min</span>
-                        <span>📊 36 questions</span>
+                        <span>📊 48 questions</span>
                         <span>🎯 Approximatif</span>
                     </div>
                     <button class="btn btn-primary" onclick="startAttachmentTest()">
@@ -216,7 +215,7 @@
             <div id="attachment-intro">
                 <div class="main-header">
                     <h1>Test d'Attachement ECR-R</h1>
-                    <p>Découvrez votre style d'attachement en répondant à 36 questions</p>
+                    <p>Découvrez votre style d'attachement en répondant à 48 questions</p>
                 </div>
 
                 <div style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
@@ -247,7 +246,7 @@
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <div class="progress-text" id="progressText">Question 1 sur 36</div>
+                <div class="progress-text" id="progressText">Question 1 sur 48</div>
             </div>
 
             <!-- Questions -->

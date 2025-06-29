@@ -1,48 +1,68 @@
-// ===== TEST D'ATTACHEMENT ECR-R =====
+// ===== TEST D'ATTACHEMENT ECR-R AMÉLIORÉ =====
 
-// Questions ECR-R avec leurs propriétés
-const questions = [
-    {id: 1, text: "I'm afraid that I will lose my partner's love.", dimension: "anxiety", reverse: false},
-    {id: 2, text: "I often worry that my partner will not want to stay with me.", dimension: "anxiety", reverse: false},
-    {id: 3, text: "I often worry that my partner doesn't really love me.", dimension: "anxiety", reverse: false},
-    {id: 4, text: "I worry that romantic partners won't care about me as much as I care about them.", dimension: "anxiety", reverse: false},
-    {id: 5, text: "I often wish that my partner's feelings for me were as strong as my feelings for him or her.", dimension: "anxiety", reverse: false},
-    {id: 6, text: "I worry a lot about my relationships.", dimension: "anxiety", reverse: false},
-    {id: 7, text: "When my partner is out of sight, I worry that he or she might become interested in someone else.", dimension: "anxiety", reverse: false},
-    {id: 8, text: "When I show my feelings for romantic partners, I'm afraid they will not feel the same about me.", dimension: "anxiety", reverse: false},
-    {id: 9, text: "I rarely worry about my partner leaving me.", dimension: "anxiety", reverse: true},
-    {id: 10, text: "My romantic partner makes me doubt myself.", dimension: "anxiety", reverse: false},
-    {id: 11, text: "I do not often worry about being abandoned.", dimension: "anxiety", reverse: true},
-    {id: 12, text: "I find that my partner(s) don't want to get as close as I would like.", dimension: "anxiety", reverse: false},
-    {id: 13, text: "Sometimes romantic partners change their feelings about me for no apparent reason.", dimension: "anxiety", reverse: false},
-    {id: 14, text: "My desire to be very close sometimes scares people away.", dimension: "anxiety", reverse: false},
-    {id: 15, text: "I'm afraid that once a romantic partner gets to know me, he or she won't like who I really am.", dimension: "anxiety", reverse: false},
-    {id: 16, text: "It makes me mad that I don't get the affection and support I need from my partner.", dimension: "anxiety", reverse: false},
-    {id: 17, text: "I worry that I won't measure up to other people.", dimension: "anxiety", reverse: false},
-    {id: 18, text: "My partner only seems to notice me when I'm angry.", dimension: "anxiety", reverse: false},
-    {id: 19, text: "I prefer not to show a partner how I feel deep down.", dimension: "avoidance", reverse: false},
-    {id: 20, text: "I feel comfortable sharing my private thoughts and feelings with my partner.", dimension: "avoidance", reverse: true},
-    {id: 21, text: "I find it difficult to allow myself to depend on romantic partners.", dimension: "avoidance", reverse: false},
-    {id: 22, text: "I am very comfortable being close to romantic partners.", dimension: "avoidance", reverse: true},
-    {id: 23, text: "I don't feel comfortable opening up to romantic partners.", dimension: "avoidance", reverse: false},
-    {id: 24, text: "I prefer not to be too close to romantic partners.", dimension: "avoidance", reverse: false},
-    {id: 25, text: "I get uncomfortable when a romantic partner wants to be very close.", dimension: "avoidance", reverse: false},
-    {id: 26, text: "I find it relatively easy to get close to my partner.", dimension: "avoidance", reverse: true},
-    {id: 27, text: "It's not difficult for me to get close to my partner.", dimension: "avoidance", reverse: true},
-    {id: 28, text: "I usually discuss my problems and concerns with my partner.", dimension: "avoidance", reverse: true},
-    {id: 29, text: "It helps to turn to my romantic partner in times of need.", dimension: "avoidance", reverse: true},
-    {id: 30, text: "I tell my partner just about everything.", dimension: "avoidance", reverse: true},
-    {id: 31, text: "I talk things over with my partner.", dimension: "avoidance", reverse: true},
-    {id: 32, text: "I am nervous when partners get too close to me.", dimension: "avoidance", reverse: false},
-    {id: 33, text: "I feel comfortable depending on romantic partners.", dimension: "avoidance", reverse: true},
-    {id: 34, text: "I find it easy to depend on romantic partners.", dimension: "avoidance", reverse: true},
-    {id: 35, text: "It's easy for me to be affectionate with my partner.", dimension: "avoidance", reverse: true},
-    {id: 36, text: "My partner really understands me and my needs.", dimension: "avoidance", reverse: true}
+// Nouvelles questions en français inspirées de l'ECR-R mais reformulées
+// pour éviter les problèmes de droits d'auteur
+const attachmentQuestions = [
+    // Questions dimension "anxiété" (18 questions)
+    {id: 1, text: "J'ai peur que mon/ma partenaire ne m'aime plus autant qu'avant.", dimension: "anxiety", reverse: false},
+    {id: 2, text: "Je m'inquiète souvent que mon/ma partenaire veuille me quitter.", dimension: "anxiety", reverse: false},
+    {id: 3, text: "Je doute parfois de l'amour que me porte mon/ma partenaire.", dimension: "anxiety", reverse: false},
+    {id: 4, text: "J'ai l'impression d'aimer plus fort que je ne suis aimé(e) en retour.", dimension: "anxiety", reverse: false},
+    {id: 5, text: "J'aimerais que mon/ma partenaire ressente des sentiments aussi intenses que les miens.", dimension: "anxiety", reverse: false},
+    {id: 6, text: "Les relations amoureuses me préoccupent beaucoup.", dimension: "anxiety", reverse: false},
+    {id: 7, text: "Quand mon/ma partenaire sort sans moi, je crains qu'il/elle rencontre quelqu'un d'autre.", dimension: "anxiety", reverse: false},
+    {id: 8, text: "J'hésite à exprimer mes sentiments de peur qu'ils ne soient pas partagés.", dimension: "anxiety", reverse: false},
+    {id: 9, text: "Je ne me fais pas de souci à l'idée d'être abandonné(e).", dimension: "anxiety", reverse: true},
+    {id: 10, text: "Mon/ma partenaire me fait parfois douter de ma valeur.", dimension: "anxiety", reverse: false},
+    {id: 11, text: "L'abandon ne fait pas partie de mes préoccupations.", dimension: "anxiety", reverse: true},
+    {id: 12, text: "Mon/ma partenaire semble moins proche de moi que je le souhaiterais.", dimension: "anxiety", reverse: false},
+    {id: 13, text: "L'attitude de mon/ma partenaire envers moi change parfois sans raison apparente.", dimension: "anxiety", reverse: false},
+    {id: 14, text: "Mon besoin de proximité fait parfois fuir les gens.", dimension: "anxiety", reverse: false},
+    {id: 15, text: "J'ai peur qu'en apprenant à me connaître vraiment, mon/ma partenaire soit déçu(e).", dimension: "anxiety", reverse: false},
+    {id: 16, text: "Cela m'agace de ne pas recevoir assez d'affection et de soutien.", dimension: "anxiety", reverse: false},
+    {id: 17, text: "Je m'inquiète de ne pas être à la hauteur des autres.", dimension: "anxiety", reverse: false},
+    {id: 18, text: "Mon/ma partenaire ne fait attention à moi que lorsque je suis en colère.", dimension: "anxiety", reverse: false},
+    
+    // Questions dimension "évitement" (18 questions)
+    {id: 19, text: "Je préfère garder mes sentiments profonds pour moi.", dimension: "avoidance", reverse: false},
+    {id: 20, text: "J'aime partager mes pensées intimes avec mon/ma partenaire.", dimension: "avoidance", reverse: true},
+    {id: 21, text: "Il m'est difficile de compter sur mon/ma partenaire.", dimension: "avoidance", reverse: false},
+    {id: 22, text: "Je me sens à l'aise dans l'intimité avec mon/ma partenaire.", dimension: "avoidance", reverse: true},
+    {id: 23, text: "M'ouvrir émotionnellement à mon/ma partenaire me met mal à l'aise.", dimension: "avoidance", reverse: false},
+    {id: 24, text: "Je préfère maintenir une certaine distance avec mon/ma partenaire.", dimension: "avoidance", reverse: false},
+    {id: 25, text: "Quand mon/ma partenaire veut être très proche, je me sens étouffé(e).", dimension: "avoidance", reverse: false},
+    {id: 26, text: "Il m'est naturel de me rapprocher de mon/ma partenaire.", dimension: "avoidance", reverse: true},
+    {id: 27, text: "Créer de l'intimité avec mon/ma partenaire ne me pose pas de problème.", dimension: "avoidance", reverse: true},
+    {id: 28, text: "Je discute facilement de mes problèmes avec mon/ma partenaire.", dimension: "avoidance", reverse: true},
+    {id: 29, text: "Me tourner vers mon/ma partenaire dans les moments difficiles m'aide.", dimension: "avoidance", reverse: true},
+    {id: 30, text: "Je raconte presque tout à mon/ma partenaire.", dimension: "avoidance", reverse: true},
+    {id: 31, text: "J'échange régulièrement avec mon/ma partenaire sur ce qui m'arrive.", dimension: "avoidance", reverse: true},
+    {id: 32, text: "Je deviens nerveux/nerveuse quand mon/ma partenaire devient trop proche.", dimension: "avoidance", reverse: false},
+    {id: 33, text: "Je me sens en sécurité en dépendant de mon/ma partenaire.", dimension: "avoidance", reverse: true},
+    {id: 34, text: "Compter sur mon/ma partenaire me vient facilement.", dimension: "avoidance", reverse: true},
+    {id: 35, text: "Exprimer de l'affection à mon/ma partenaire me vient naturellement.", dimension: "avoidance", reverse: true},
+    {id: 36, text: "Mon/ma partenaire comprend vraiment mes besoins et qui je suis.", dimension: "avoidance", reverse: true},
+    
+    // Questions supplémentaires pour enrichir le test (12 questions)
+    {id: 37, text: "Je vérifie souvent si mon/ma partenaire m'aime encore.", dimension: "anxiety", reverse: false},
+    {id: 38, text: "Les disputes me font craindre la fin de ma relation.", dimension: "anxiety", reverse: false},
+    {id: 39, text: "J'ai besoin de beaucoup de réassurance de la part de mon/ma partenaire.", dimension: "anxiety", reverse: false},
+    {id: 40, text: "Je me sens en sécurité dans ma relation amoureuse.", dimension: "anxiety", reverse: true},
+    {id: 41, text: "L'indépendance est très importante pour moi dans une relation.", dimension: "avoidance", reverse: false},
+    {id: 42, text: "Trop d'intimité émotionnelle me rend inconfortable.", dimension: "avoidance", reverse: false},
+    {id: 43, text: "Je préfère résoudre mes problèmes seul(e) plutôt qu'avec mon/ma partenaire.", dimension: "avoidance", reverse: false},
+    {id: 44, text: "Montrer mes faiblesses à mon/ma partenaire ne me dérange pas.", dimension: "avoidance", reverse: true},
+    {id: 45, text: "Je m'inquiète souvent de décevoir mon/ma partenaire.", dimension: "anxiety", reverse: false},
+    {id: 46, text: "Les moments de silence avec mon/ma partenaire me mettent mal à l'aise.", dimension: "anxiety", reverse: false},
+    {id: 47, text: "J'aime avoir du temps pour moi, loin de mon/ma partenaire.", dimension: "avoidance", reverse: false},
+    {id: 48, text: "Je fais confiance à mon/ma partenaire pour être là quand j'en ai besoin.", dimension: "avoidance", reverse: true}
 ];
 
 // Variables globales du test
 let currentQuestion = 0;
 let responses = {};
+let randomizedQuestions = [];
+let selectedQuestions = [];
 
 // ===== FONCTIONS PRINCIPALES =====
 function startAttachmentTest() {
@@ -52,29 +72,61 @@ function startAttachmentTest() {
 function startQuestions() {
     document.getElementById('attachment-intro').style.display = 'none';
     document.getElementById('progressContainer').style.display = 'block';
+    
+    // Sélectionner et randomiser 48 questions
+    selectAndRandomizeQuestions();
     generateQuestions();
     showQuestion(0);
+}
+
+function selectAndRandomizeQuestions() {
+    // Séparer les questions par dimension
+    const anxietyQuestions = attachmentQuestions.filter(q => q.dimension === 'anxiety');
+    const avoidanceQuestions = attachmentQuestions.filter(q => q.dimension === 'avoidance');
+    
+    // Sélectionner 18 questions de chaque dimension aléatoirement
+    const selectedAnxiety = shuffleArray([...anxietyQuestions]).slice(0, 24);
+    const selectedAvoidance = shuffleArray([...avoidanceQuestions]).slice(0, 24);
+    
+    // Combiner et mélanger l'ordre final
+    selectedQuestions = shuffleArray([...selectedAnxiety, ...selectedAvoidance]);
+    
+    // Réassigner les IDs pour l'affichage (1 à 48)
+    selectedQuestions.forEach((question, index) => {
+        question.displayId = index + 1;
+    });
+    
+    console.log('Questions sélectionnées et randomisées:', selectedQuestions.length);
+}
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
 }
 
 function generateQuestions() {
     const container = document.getElementById('questionsContainer');
     container.innerHTML = '';
 
-    questions.forEach((question, index) => {
+    selectedQuestions.forEach((question, index) => {
         const questionCard = document.createElement('div');
         questionCard.className = 'question-card';
         questionCard.id = `question-${index}`;
         
         questionCard.innerHTML = `
-            <div class="question-number">Question ${question.id} sur 36</div>
+            <div class="question-number">Question ${question.displayId} sur 48</div>
             <div class="question-text">${question.text}</div>
             
             <div class="scale-container">
                 <div class="scale-options">
                     ${[1,2,3,4,5,6,7].map(value => `
                         <div class="scale-item">
-                            <input type="radio" id="q${question.id}_${value}" name="question_${question.id}" value="${value}" onchange="handleResponse(${question.id}, ${value})">
-                            <label for="q${question.id}_${value}">
+                            <input type="radio" id="q${question.displayId}_${value}" name="question_${question.displayId}" value="${value}" onchange="handleResponse(${question.id}, ${value})">
+                            <label for="q${question.displayId}_${value}">
                                 <div class="scale-circle">${value}</div>
                                 <div class="scale-label">${value === 1 ? 'Pas du tout' : value === 4 ? 'Neutre' : value === 7 ? 'Tout à fait' : ''}</div>
                             </label>
@@ -93,7 +145,7 @@ function generateQuestions() {
                     ← Précédent
                 </button>
                 <button class="btn btn-primary" id="nextBtn-${index}" onclick="nextQuestion()" disabled>
-                    ${index === questions.length - 1 ? 'Voir les résultats' : 'Suivant →'}
+                    ${index === selectedQuestions.length - 1 ? 'Voir les résultats' : 'Suivant →'}
                 </button>
             </div>
         `;
@@ -112,9 +164,9 @@ function showQuestion(index) {
     document.getElementById(`question-${index}`).classList.add('active');
     
     // Mettre à jour la barre de progression
-    const progress = ((index + 1) / questions.length) * 100;
+    const progress = ((index + 1) / selectedQuestions.length) * 100;
     document.getElementById('progressFill').style.width = progress + '%';
-    document.getElementById('progressText').textContent = `Question ${index + 1} sur ${questions.length}`;
+    document.getElementById('progressText').textContent = `Question ${index + 1} sur ${selectedQuestions.length}`;
     
     currentQuestion = index;
 }
@@ -125,7 +177,7 @@ function handleResponse(questionId, value) {
 }
 
 function nextQuestion() {
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < selectedQuestions.length - 1) {
         showQuestion(currentQuestion + 1);
     } else {
         calculateResults();
@@ -145,7 +197,7 @@ function calculateResults() {
     let anxietyCount = 0;
     let avoidanceCount = 0;
 
-    questions.forEach(question => {
+    selectedQuestions.forEach(question => {
         const response = responses[question.id];
         if (response !== undefined) {
             let score = question.reverse ? (8 - response) : response;
@@ -170,23 +222,23 @@ function calculateResults() {
 function getAttachmentStyle(anxiety, avoidance) {
     if (anxiety < 4 && avoidance < 4) {
         return {
-            name: "Sécure 56-58% de la population",
-            description: "Ces personnes ont grandi avec des parents attentifs et fiables. Elles sont confortables avec l'intimité émotionnelle sans perdre leur indépendance. Elles communiquent directement leurs besoins, gèrent bien les conflits et font confiance à leurs partenaires tout en gardant une bonne estime d'elles-mêmes. Dans une dispute, elles cherchent à résoudre le problème plutôt qu'à blâmer. Elles sont capables d'être seules sans souffrir et en couple sans se perdre. Vous vous sentez généralement à l'aise dans l'intimité et l'autonomie. Vous maintenez facilement des relations proches et stables."
+            name: "Sécure (56-58% de la population)",
+            description: "Vous vous sentez généralement à l'aise dans l'intimité et l'autonomie. Vous maintenez facilement des relations proches et stables. Vous communiquez directement vos besoins, gérez bien les conflits et faites confiance à vos partenaires tout en gardant une bonne estime de vous-même. Vous êtes capable d'être seul(e) sans souffrir et en couple sans vous perdre."
         };
     } else if (anxiety >= 4 && avoidance < 4) {
         return {
-            name: "Anxieux/Préoccupé 18-20% de la population",
-            description: "Ces personnes ont souvent eu des parents incohérents - parfois présents, parfois absents. Elles vivent avec une peur constante d'être abandonnées et ont besoin de beaucoup de réassurance de leur partenaire. Elles analysent chaque message, chaque ton de voix pour déceler des signes de rejet. En relation, elles peuvent devenir collantes, vérifier souvent où est leur partenaire, et interpréter le silence comme un signe que 'quelque chose ne va pas'. Elles ont tendance à idealiser leur partenaire tout en se dévalorisent. Vous désirez des relations très proches mais vous inquiétez que les autres ne vous aiment pas autant que vous les aimez."
+            name: "Anxieux/Préoccupé (18-20% de la population)",
+            description: "Vous désirez des relations très proches mais vous vous inquiétez que les autres ne vous aiment pas autant que vous les aimez. Vous avez tendance à avoir besoin de beaucoup de réassurance de votre partenaire et analysez souvent ses comportements pour déceler des signes de rejet. Vous pouvez parfois idéaliser votre partenaire tout en vous dévalorisant."
         };
     } else if (anxiety < 4 && avoidance >= 4) {
         return {
-            name: "Évitant/Détaché 22-25% de la population",
-            description: "Ces personnes ont appris très tôt que compter sur les autres mène à la déception, souvent à cause de parents émotionnellement indisponibles. Elles valorisent énormément leur indépendance et se sentent étouffées par trop d'intimité émotionnelle. Elles ont du mal à exprimer leurs sentiments, évitent les conversations 'trop personnelles' et peuvent disparaître quand une relation devient sérieuse. Elles préfèrent les relations superficielles ou les aventures sans lendemain car c'est moins 'risqué' émotionnellement. Vous valorisez l'indépendance et l'autonomie. Vous pouvez vous sentir mal à l'aise avec une trop grande intimité émotionnelle."
+            name: "Évitant/Détaché (22-25% de la population)",
+            description: "Vous valorisez l'indépendance et l'autonomie. Vous pouvez vous sentir mal à l'aise avec une trop grande intimité émotionnelle. Vous avez appris que compter sur les autres peut mener à la déception et préférez maintenir une certaine distance émotionnelle. Vous avez du mal à exprimer vos sentiments profonds et évitez parfois les conversations trop personnelles."
         };
     } else {
         return {
-            name: "Désorganisé/Craintif-Évitant 5-10% de la population",
-            description: "Ces personnes ont souvent vécu des traumatismes d'enfance où leurs parents étaient à la fois source de sécurité ET de danger. Elles veulent désespérément l'amour mais paniquent dès qu'elles l'obtiennent. Leur comportement est imprévisible : elles peuvent être très proches un jour et complètement distantes le lendemain. Elles ont du mal à faire confiance mais souffrent terriblement de la solitude. C'est le plus complexe des styles car il combine les peurs des anxieux ET des évitants, créant un cycle constant d'approche-fuite qui épuise leurs partenaires. Vous ressentez un mélange d'anxiété et d'évitement dans les relations, pouvant créer des difficultés relationnelles."
+            name: "Désorganisé/Craintif-Évitant (5-10% de la population)",
+            description: "Vous ressentez un mélange d'anxiété et d'évitement dans les relations. Vous voulez l'amour mais paniquez parfois quand vous l'obtenez. Votre comportement peut être imprévisible : très proche un jour et distant le lendemain. Vous avez du mal à faire confiance mais souffrez de la solitude. C'est un style complexe qui peut créer des cycles d'approche-fuite dans les relations."
         };
     }
 }
@@ -337,6 +389,7 @@ function drawChart(anxiety, avoidance) {
 function restartAttachmentTest() {
     currentQuestion = 0;
     responses = {};
+    selectedQuestions = [];
     
     document.getElementById('resultsContainer').style.display = 'none';
     document.getElementById('attachment-intro').style.display = 'block';

@@ -1266,3 +1266,178 @@ body {
         font-size: 1.5em;
     }
 }
+/* ===== OPTIMISATION DES BOUTONS D'ÉCHELLE ECR-R POUR MOBILE ===== */
+
+/* Mobile standard (jusqu'à 768px) */
+@media (max-width: 768px) {
+    .scale-options {
+        padding: 0 10px;
+        gap: 5px;
+        justify-content: space-between;
+    }
+    
+    .scale-item {
+        flex: 1;
+        max-width: calc(100% / 7);
+        min-width: auto;
+    }
+    
+    .scale-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9em;
+        font-weight: 600;
+        margin-bottom: 6px;
+        border-width: 2px;
+    }
+    
+    .scale-label {
+        font-size: 0.7em;
+        line-height: 1.1;
+        text-align: center;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    
+    .scale-extremes {
+        font-size: 0.85em;
+        margin-top: 12px;
+        padding: 0 5px;
+    }
+}
+
+/* Petits mobiles (jusqu'à 480px) */
+@media (max-width: 480px) {
+    .scale-options {
+        padding: 0 5px;
+        gap: 3px;
+    }
+    
+    .scale-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85em;
+        margin-bottom: 5px;
+        border-width: 2px;
+    }
+    
+    .scale-label {
+        font-size: 0.65em;
+        line-height: 1;
+    }
+    
+    .scale-extremes {
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+    
+    /* Masquer les labels intermédiaires pour économiser l'espace */
+    .scale-item:nth-child(2) .scale-label,
+    .scale-item:nth-child(3) .scale-label,
+    .scale-item:nth-child(5) .scale-label,
+    .scale-item:nth-child(6) .scale-label {
+        display: none;
+    }
+}
+
+/* Très petits écrans (jusqu'à 360px) */
+@media (max-width: 360px) {
+    .scale-options {
+        padding: 0 2px;
+        gap: 2px;
+    }
+    
+    .scale-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8em;
+        border-width: 2px;
+        margin-bottom: 4px;
+    }
+    
+    .scale-label {
+        font-size: 0.6em;
+    }
+    
+    .scale-extremes {
+        font-size: 0.75em;
+        margin-top: 8px;
+    }
+}
+
+/* Mode paysage sur mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .scale-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8em;
+        margin-bottom: 4px;
+    }
+    
+    .scale-label {
+        font-size: 0.65em;
+    }
+    
+    .scale-options {
+        gap: 4px;
+    }
+}
+
+/* Améliorations tactiles pour les boutons d'échelle */
+@media (max-width: 768px) {
+    .scale-item {
+        cursor: pointer;
+        padding: 5px 2px;
+        transition: all 0.2s ease;
+        border-radius: 8px;
+    }
+    
+    .scale-item:active {
+        background-color: rgba(161, 162, 126, 0.1);
+        transform: scale(0.95);
+    }
+    
+    .scale-item input[type="radio"]:checked + label .scale-circle {
+        transform: scale(1.05);
+        box-shadow: 0 2px 8px rgba(215, 162, 140, 0.3);
+    }
+    
+    /* Zone de clic plus large pour faciliter la sélection */
+    .scale-item label {
+        padding: 8px 4px;
+        margin: -8px -4px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+    
+    .scale-item:hover label {
+        background-color: rgba(161, 162, 126, 0.05);
+    }
+}
+
+/* Optimisation pour les écrans très larges mais courts (paysage sur petits mobiles) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .question-card {
+        padding: 20px;
+    }
+    
+    .scale-container {
+        margin-bottom: 15px;
+    }
+    
+    .scale-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8em;
+        margin-bottom: 3px;
+    }
+    
+    .scale-label {
+        font-size: 0.6em;
+    }
+    
+    .scale-extremes {
+        margin-top: 8px;
+        font-size: 0.75em;
+    }
+}

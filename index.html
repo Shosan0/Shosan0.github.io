@@ -55,6 +55,26 @@
                     </button>
                 </div>
 
+                <!-- Aim Trainer - NOUVEAU -->
+                <div class="project-card available" data-category="games">
+                    <div class="project-icon">🎯</div>
+                    <h3>Aim Trainer</h3>
+                    <p>Améliore ta précision et tes réflexes !</p>
+                    <div class="project-tags">
+                        <span class="tag">FPS</span>
+                        <span class="tag">Précision</span>
+                        <span class="tag">Valorant</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>🎮 Gaming</span>
+                        <span>📊 Score précision</span>
+                        <span>🎯 Pro Gaming</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startAimTrainer()">
+                        Entraîner mon aim
+                    </button>
+                </div>
+
                 <!-- Test de dactylographie -->
                 <div class="project-card available" data-category="productivity">
                     <div class="project-icon">⌨️</div>
@@ -339,6 +359,33 @@
             </div>
         </section>
 
+        <!-- Aim Trainer - NOUVEAU -->
+        <section id="aim-trainer" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du jeu -->
+            <div id="aim-trainer-interface">
+                <div class="main-header">
+                    <h1>🎯 Aim Trainer</h1>
+                    <p>Améliore ta précision et tes réflexes pour dominer sur Valorant !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="aim-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+
+                <!-- Historique -->
+                <div id="aim-history" style="display: none;">
+                    <!-- Historique généré par JavaScript -->
+                </div>
+            </div>
+        </section>
+
         <!-- Blackjack Game - NOUVEAU -->
         <section id="blackjack-game" class="section">
             <div style="margin-bottom: 30px;">
@@ -379,5 +426,6 @@
     <script src="js/reaction-test.js"></script>
     <script src="js/typing-test.js"></script>
     <script src="js/blackjack.js"></script>
+    <script src="js/aimlabs.js"></script>
 </body>
 </html>

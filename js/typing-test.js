@@ -2,21 +2,27 @@
 
 // Liste de mots français courants pour le test
 const frenchWords = [
-    'le', 'de', 'et', 'à', 'un', 'il', 'être', 'et', 'en', 'avoir', 'que', 'pour',
+    'le', 'de', 'et', 'à', 'un', 'il', 'être', 'en', 'avoir', 'que', 'pour',
     'dans', 'ce', 'son', 'une', 'sur', 'avec', 'ne', 'se', 'pas', 'tout', 'plus',
     'par', 'grand', 'mais', 'homme', 'vie', 'temps', 'jour', 'eau', 'monde', 'main',
     'premier', 'vous', 'lui', 'nous', 'comme', 'savoir', 'pouvoir', 'autre', 'année',
-    'venir', 'deux', 'même', 'prendre', 'état', 'partie', 'entre', 'contre', 'tout',
-    'place', 'sans', 'faire', 'aller', 'enfant', 'ville', 'métier', 'terre', 'point',
+    'venir', 'deux', 'même', 'prendre', 'état', 'partie', 'entre', 'contre', 'place',
+    'sans', 'faire', 'aller', 'enfant', 'ville', 'métier', 'terre', 'point', 'depuis',
     'semaine', 'ciel', 'route', 'fin', 'raison', 'trouver', 'tête', 'donner', 'fait',
     'groupe', 'vers', 'chose', 'femme', 'créer', 'ouvrir', 'public', 'aussi', 'celui',
-    'moment', 'dire', 'rendre', 'elle', 'tout', 'son', 'bien', 'où', 'jusque', 'forme',
+    'moment', 'dire', 'rendre', 'elle', 'bien', 'où', 'jusque', 'forme', 'regarder',
     'école', 'maison', 'petit', 'encore', 'laisser', 'mot', 'rester', 'partir', 'père',
     'tenir', 'mois', 'passer', 'vouloir', 'parler', 'jeu', 'tant', 'mener', 'ordre',
-    'loi', 'ligne', 'tard', 'force', 'beau', 'soir', 'créer', 'population', 'retour',
-    'travail', 'commune', 'prix', 'livre', 'certain', 'commerce', 'question', 'politique'
+    'loi', 'ligne', 'tard', 'force', 'beau', 'soir', 'population', 'retour', 'enfin',
+    'travail', 'commune', 'prix', 'livre', 'certain', 'commerce', 'question', 'politique',
+    'devant', 'mer', 'car', 'sentir', 'porte', 'pays', 'votre', 'yeux', 'entendre',
+    'heure', 'amour', 'oui', 'jeune', 'mon', 'reprendre', 'puis', 'demander', 'trois',
+    'noir', 'lequel', 'bon', 'sous', 'quelque', 'moins', 'notre', 'sembler', 'gens',
+    'moi', 'croire', 'rien', 'falloir', 'regard', 'ainsi', 'nom', 'âme', 'quatre',
+    'vingt', 'mettre', 'chercher', 'non', 'voix', 'sortir', 'côté', 'aimer', 'coeur',
+    'voir', 'donner', 'bras', 'blanc', 'long', 'seul', 'rêve', 'rouge', 'vert',
+    'noir', 'jaune', 'bleu', 'gris', 'rose', 'boire', 'manger', 'dormir', 'courir'
 ];
-
 // Variables globales pour le test de dactylographie
 let typingWords = [];
 let currentWordIndex = 0;
@@ -54,14 +60,6 @@ function initTypingTest() {
                             <option value="60" selected>60 secondes</option>
                             <option value="120">2 minutes</option>
                             <option value="300">5 minutes</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <label>Difficulté</label>
-                        <select id="typing-difficulty">
-                            <option value="easy" selected>Facile (mots courts)</option>
-                            <option value="medium">Moyen (mots variés)</option>
-                            <option value="hard">Difficile (mots longs)</option>
                         </select>
                     </div>
                 </div>
@@ -121,6 +119,8 @@ function initTypingTest() {
     `;
     
     resetTypingStats();
+    startTypingRound()
+
 }
 
 // ===== CONFIGURATION ET GÉNÉRATION =====
@@ -131,16 +131,7 @@ function setTypingDuration(duration) {
 }
 
 function generateTypingWords() {
-    const difficulty = document.getElementById('typing-difficulty').value;
     let wordPool = [...frenchWords];
-    
-    // Filtrer selon la difficulté
-    if (difficulty === 'easy') {
-        wordPool = wordPool.filter(word => word.length <= 4);
-    } else if (difficulty === 'medium') {
-        wordPool = wordPool.filter(word => word.length <= 7);
-    }
-    // Pour 'hard', on garde tous les mots
     
     // Générer 200 mots aléatoirement
     typingWords = [];
@@ -260,7 +251,7 @@ function submitCurrentWord() {
         nextWordElement.classList.add('current');
         
         // Scroll automatique si nécessaire
-        nextWordElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        nextWordElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
     // Vider l'input

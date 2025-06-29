@@ -39,6 +39,41 @@ function filterProjects(category) {
     });
 }
 
+// ===== LANCEURS DES JEUX/TESTS =====
+// Ces fonctions sont appelées depuis les boutons des cartes projet
+
+function startAttachmentTest() {
+    showSection('attachment-test');
+}
+
+function startReactionTest() {
+    showSection('reaction-test');
+    if (typeof initReactionTest === 'function') {
+        initReactionTest();
+    }
+}
+
+function startTypingTest() {
+    showSection('typing-test');
+    if (typeof initTypingTest === 'function') {
+        initTypingTest();
+    }
+}
+
+function startAimTrainer() {
+    showSection('aim-trainer');
+    if (typeof initAimTrainer === 'function') {
+        initAimTrainer();
+    }
+}
+
+function startBlackjackGame() {
+    showSection('blackjack-game');
+    if (typeof initBlackjackGame === 'function') {
+        initBlackjackGame();
+    }
+}
+
 // ===== GESTION REDIMENSIONNEMENT =====
 // Gérer le redimensionnement de la fenêtre pour le graphique d'attachement
 window.addEventListener('resize', function() {

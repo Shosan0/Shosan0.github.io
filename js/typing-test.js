@@ -19,7 +19,7 @@ const frenchWords = [
     'heure', 'amour', 'oui', 'jeune', 'mon', 'reprendre', 'puis', 'demander', 'trois',
     'noir', 'lequel', 'bon', 'sous', 'quelque', 'moins', 'notre', 'sembler', 'gens',
     'moi', 'croire', 'rien', 'falloir', 'regard', 'ainsi', 'nom', 'âme', 'quatre',
-    'vingt', 'mettre', 'chercher', 'non', 'voix', 'sortir', 'côté', 'aimer', 'cœur',
+    'vingt', 'mettre', 'chercher', 'non', 'voix', 'sortir', 'côté', 'aimer', 'coeur',
     'voir', 'donner', 'bras', 'blanc', 'long', 'seul', 'rêve', 'rouge', 'vert',
     'noir', 'jaune', 'bleu', 'gris', 'rose', 'boire', 'manger', 'dormir', 'courir'
 ];

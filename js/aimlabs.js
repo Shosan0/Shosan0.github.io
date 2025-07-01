@@ -29,14 +29,14 @@ let aimHistory = [];
 // Configuration des difficultés
 const aimDifficultySettings = {
     easy: {
-        targetSize: 80,
+        targetSize: 100,
         targetDuration: 3000,
         spawnDelay: 1500,
         trackingSpeed: 100,
         name: 'Facile'
     },
     medium: {
-        targetSize: 60,
+        targetSize: 70,
         targetDuration: 2000,
         spawnDelay: 1000,
         trackingSpeed: 150,
@@ -172,8 +172,8 @@ function startAimGame() {
     
     // Préparer l'aire de jeu - taille adaptée au mode
     if (aimGameMode === 'gridshot') {
-        playArea.style.height = '400px';  // Zone plus petite pour gridshot
-        playArea.style.width = '600px';
+        playArea.style.height = '300px';  // Zone encore plus petite pour gridshot
+        playArea.style.width = '400px';
         playArea.style.margin = '0 auto';
     } else {
         playArea.style.height = '500px';
@@ -327,8 +327,8 @@ function scheduleNextTarget() {
 function startGridshotMode() {
     if (!aimGameActive) return;
     
-    // Créer 3 cibles fixes
-    for (let i = 0; i < 3; i++) {
+    // Créer 4 cibles fixes
+    for (let i = 0; i < 4; i++) {
         spawnGridshotTarget();
     }
 }
@@ -389,9 +389,6 @@ function handleGridshotHit(event) {
     target.style.background = 'radial-gradient(circle, #2ed573 0%, #1dd1a1 50%, #26de81 100%)';
     target.style.transform = 'scale(1.3)';
     
-    // Affichage du score flottant
-    showFloatingScore(points, accuracy, reactionTime, event.clientX, event.clientY);
-    
     // Retirer de la liste et du DOM
     const index = aimCurrentTargets.indexOf(target);
     if (index > -1) {
@@ -401,7 +398,7 @@ function handleGridshotHit(event) {
     setTimeout(() => target.remove(), 200);
     
     // Créer une nouvelle cible immédiatement
-    setTimeout(spawnGridshotTarget, 100);
+    setTimeout(spawnGridshotTarget, 50);
     
     updateAimDisplay();
 }
@@ -545,7 +542,7 @@ function createTargetElement(size) {
     target.style.background = 'radial-gradient(circle, #ff4757 0%, #ff3838 30%, #ff6b6b 70%, #ff9999 100%)';
     target.style.border = '3px solid #fff';
     target.style.boxShadow = '0 4px 15px rgba(255, 71, 87, 0.4), inset 0 0 0 2px #ff3838';
-    target.style.cursor = 'crosshair'; // CORRECTION: Forcer le curseur crosshair
+    target.style.cursor = 'crosshair';
     target.style.transition = 'transform 0.1s ease';
     target.style.animation = 'aimTargetAppear 0.2s ease-out';
     
@@ -565,7 +562,7 @@ function createTargetElement(size) {
     
     // Animation hover
     target.addEventListener('mouseover', () => {
-        target.style.transform = 'scale(1.05)';
+        target.style.transform = 'scale(1.025)';
     });
     target.addEventListener('mouseout', () => {
         target.style.transform = 'scale(1)';
@@ -638,7 +635,7 @@ function showFloatingScore(points, accuracy, reactionTime, x, y) {
             ${Math.round(accuracy * 100)}% • ${reactionTime}ms
         </div>
     `;
-    
+
     document.body.appendChild(floatingScore);
     setTimeout(() => floatingScore.remove(), 1000);
 }
@@ -658,7 +655,7 @@ function handleAimAreaClick(event) {
     miss.style.width = '20px';
     miss.style.height = '20px';
     miss.style.borderRadius = '50%';
-    miss.style.background = '#ffd966';
+    miss.style.background = '#000000';
     miss.style.opacity = '0.7';
     miss.style.animation = 'aimMissEffect 0.5s ease-out forwards';
     miss.style.pointerEvents = 'none';

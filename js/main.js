@@ -46,6 +46,13 @@ function startAttachmentTest() {
     showSection('attachment-test');
 }
 
+function startGeoQuiz() {
+    showSection('geography-quiz');
+    if (typeof initGeographyQuiz === 'function') {
+        initGeographyQuiz();
+    }
+}
+
 function startReactionTest() {
     showSection('reaction-test');
     if (typeof initReactionTest === 'function') {

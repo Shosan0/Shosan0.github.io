@@ -10,8 +10,9 @@
     <div class="container">
         <!-- Navigation -->
         <nav class="navbar">
-            <div class="logo" onclick="showSection('home')">Messy-Things</div>
+            <div class="logo">Mon Hub</div>
             <div class="nav-links">
+                <a href="#" onclick="showSection('home')" class="active">Accueil</a>
                 <a href="#" onclick="showSection('about')">À propos</a>
                 <a href="#" onclick="showSection('contact')">Contact</a>
             </div>
@@ -21,7 +22,7 @@
         <section id="home" class="section active">
             <div class="main-header">
                 <h1>Mes Outils & Projets</h1>
-                <p>Bienvenue au labo.</p>
+                <p>Voilà le site un peu fourre-tout que j'utiliserai maintenant pour exposer mes expériences.</p>
             </div>
 
             <!-- Filtres par catégorie -->
@@ -47,31 +48,11 @@
                     </div>
                     <div class="project-meta">
                         <span>⏱️ 5-10 min</span>
-                        <span>📊 48 questions</span>
+                        <span>📊 36 questions</span>
                         <span>🎯 Approximatif</span>
                     </div>
                     <button class="btn btn-primary" onclick="startAttachmentTest()">
                         Faire le test
-                    </button>
-                </div>
-
-                <!-- Aim Trainer - NOUVEAU -->
-                <div class="project-card available" data-category="games">
-                    <div class="project-icon">🎯</div>
-                    <h3>Aim Trainer</h3>
-                    <p>Améliore ta précision et tes réflexes !</p>
-                    <div class="project-tags">
-                        <span class="tag">FPS</span>
-                        <span class="tag">Précision</span>
-                        <span class="tag">Valorant</span>
-                    </div>
-                    <div class="project-meta">
-                        <span>🎮 Gaming</span>
-                        <span>📊 Score précision</span>
-                        <span>🎯 Pro Gaming</span>
-                    </div>
-                    <button class="btn btn-primary" onclick="startAimTrainer()">
-                        Entraîner mon aim
                     </button>
                 </div>
 
@@ -136,6 +117,25 @@
                     </button>
                 </div>
 
+                <!-- Jeu de Géographie - NOUVEAU -->
+                <div class="project-card available" data-category="games">
+                    <div class="project-icon">🌍</div>
+                    <h3>Quiz de Géographie</h3>
+                    <p>Teste tes connaissances ! Reconnais les drapeaux et les capitales de 197 pays du monde entier.</p>
+                    <div class="project-tags">
+                        <span class="tag">Drapeaux</span>
+                        <span class="tag">Capitales</span>
+                        <span class="tag">Éducatif</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>🚩 197 pays</span>
+                        <span>🎯 4 niveaux</span>
+                        <span>🏆 Instructif</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startGeographyGame()">
+                        Jouer au Quiz
+                    </button>
+                </div>
                 <!-- Générateur de QR Code -->
                 <div class="project-card coming-soon" data-category="tools">
                     <div class="project-icon">📱</div>
@@ -235,7 +235,7 @@
             <div id="attachment-intro">
                 <div class="main-header">
                     <h1>Test d'Attachement ECR-R</h1>
-                    <p>Découvrez votre style d'attachement en répondant à 48 questions</p>
+                    <p>Découvrez votre style d'attachement en répondant à 36 questions</p>
                 </div>
 
                 <div style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
@@ -266,7 +266,7 @@
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <div class="progress-text" id="progressText">Question 1 sur 48</div>
+                <div class="progress-text" id="progressText">Question 1 sur 36</div>
             </div>
 
             <!-- Questions -->
@@ -359,33 +359,6 @@
             </div>
         </section>
 
-        <!-- Aim Trainer - NOUVEAU -->
-        <section id="aim-trainer" class="section">
-            <div style="margin-bottom: 30px;">
-                <button class="btn btn-back" onclick="showSection('home')">
-                    ← Retour à l'accueil
-                </button>
-            </div>
-
-            <!-- Interface du jeu -->
-            <div id="aim-trainer-interface">
-                <div class="main-header">
-                    <h1>🎯 Aim Trainer</h1>
-                    <p>Améliore ta précision et tes réflexes pour dominer sur Valorant !</p>
-                </div>
-
-                <!-- Zone de jeu -->
-                <div id="aim-game-area">
-                    <!-- Contenu généré par JavaScript -->
-                </div>
-
-                <!-- Historique -->
-                <div id="aim-history" style="display: none;">
-                    <!-- Historique généré par JavaScript -->
-                </div>
-            </div>
-        </section>
-
         <!-- Blackjack Game - NOUVEAU -->
         <section id="blackjack-game" class="section">
             <div style="margin-bottom: 30px;">
@@ -405,14 +378,30 @@
                 <div id="blackjack-game-area">
                     <!-- Contenu généré par JavaScript -->
                 </div>
-
-                <!-- Règles -->
-                <div id="blackjack-rules" style="display: none;">
-                    <!-- Règles générées par JavaScript -->
-                </div>
             </div>
         </section>
 
+        <!-- Jeu de Géographie -->
+        <section id="geography-game" class="section">
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-back" onclick="showSection('home')">
+                    ← Retour à l'accueil
+                </button>
+            </div>
+
+            <!-- Interface du jeu -->
+            <div id="geography-interface">
+                <div class="main-header">
+                    <h1>🌍 Quiz de Géographie</h1>
+                    <p>Teste tes connaissances sur les drapeaux et capitales du monde !</p>
+                </div>
+
+                <!-- Zone de jeu -->
+                <div id="geography-game-area">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+            </div>
+        </section>
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 Mon Hub Personnel.</p>
@@ -426,6 +415,6 @@
     <script src="js/reaction-test.js"></script>
     <script src="js/typing-test.js"></script>
     <script src="js/blackjack.js"></script>
-    <script src="js/aimlabs.js"></script>
+    <script src="js/geography-game.js"></script>
 </body>
 </html>

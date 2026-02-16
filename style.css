@@ -976,6 +976,39 @@ body {
     color: white;
 }
 
+.bet-btn {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    background: #28a745;
+    color: white;
+}
+
+.bet-btn.active {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    background: #17792e;
+    color: white;
+}
+
+.bet-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
 .btn-hit:hover {
     background: #218838;
     transform: translateY(-2px);
